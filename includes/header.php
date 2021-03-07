@@ -36,7 +36,7 @@
 			<div class="header py-4">
 				<div class="container">
 					<div class="d-flex">
-					<a class="header-brand" href="./index.html">
+					<a class="header-brand" href="/">
 						<img src="./public/demo/brand/tabler.svg" class="header-brand-img" alt="tabler logo">
 					</a>
 					<div class="d-flex order-lg-2 ml-auto">                
@@ -71,19 +71,22 @@
 						<div class="col-lg order-lg-first">
 							<ul class="nav nav-tabs border-0 flex-column flex-lg-row">
 								<li class="nav-item">
-									<a href="./index.html" class="nav-link active"><i class="fe fe-home"></i> Home</a>
+									<a href="/" class="nav-link active"><i class="fe fe-home"></i> Home</a>
 								</li>
 								<li class="nav-item">
-									<a href="./produtos.html" class="nav-link"><i class="fe fe-package"></i> Produtos</a>
+									<a href="/produtos.php" class="nav-link"><i class="fe fe-package"></i> Produtos</a>
 								</li>
 								<li class="nav-item">
-									<a href="./form-venda.html" class="nav-link"><i class="fe fe-dollar-sign"></i> Venda</a>
+									<a href="/venda.php" class="nav-link"><i class="fe fe-dollar-sign"></i> Venda</a>
 								</li>
 								<li class="nav-item">
-									<a href="./produtos-excluidos.html" class="nav-link"><i class="fe fe-trash"></i> Lixeira</a>
+									<a href="/lixeira.php" class="nav-link"><i class="fe fe-trash"></i> Lixeira</a>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="my-3 my-md-5">
+    			<div class="container">
