@@ -9,25 +9,11 @@ $produtos = Produto::getProdutos('status = "ativo"');
 
 $vendas = Venda::getVendas();
 
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-}
-
-console_log($vendas);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
     if(isset($_POST['produto'], $_POST['quantidade'], $_POST['valor'])){
-        
-        console_log('fazendo request post');
-    
-        console_log($_POST['produto']);
-        console_log($_POST['quantidade']);
-        console_log($_POST['valor']);
-        console_log($_POST['atualizarProduto']);
 
         $isAtualizaProduto = $_POST['atualizarProduto'];
 

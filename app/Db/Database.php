@@ -58,8 +58,6 @@ class Database{
 		$join = strlen($join) ? 'INNER JOIN '.$join : '';
 	
 		$query = 'SELECT '.$fields.' FROM '.$this->table.' '.$join.' '.$where.' '.$order.' '.$limit;
-
-		console_log($query);
 	
 		return $this->execute($query);
 	}

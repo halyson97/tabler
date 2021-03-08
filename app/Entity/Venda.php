@@ -53,4 +53,8 @@ class Venda{
 		return (new Database('vendas'))->select($where,$order,$limit,'*', $join)->fetchAll(PDO::FETCH_CLASS,self::class);
 	}
 
+	public static function count($where = null, $order = null, $limit = null){
+		return (new Database('vendas'))->select($where,$order,$limit,'*')->rowCount();
+	}
+
 }

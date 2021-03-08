@@ -5,12 +5,6 @@ namespace App\Entity;
 use \App\Db\Database;
 use \PDO;
 
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-}
-
 class Produto{
 
 	public $idprodutos;
@@ -74,5 +68,9 @@ class Produto{
 	public static function getProduto($id){
 		return (new Database('produtos'))->select('idprodutos = "'.$id.'"')
 									  ->fetchObject(self::class);
+	}
+
+	public static function count($where = null, $order = null, $limit = null){
+		return (new Database('produtos'))->select($where,$order,$limit,'*')->rowCount();
 	}
 }
