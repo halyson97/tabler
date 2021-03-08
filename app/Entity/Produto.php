@@ -57,7 +57,7 @@ class Produto{
 
 	public function excluir(){
 		$this->updatedAt = date('Y-m-d H:i:s');
-		$this->status = 'lixeira';
+		$this->status = 'inativo';
 		return $this->atualizar();
 	}
 
