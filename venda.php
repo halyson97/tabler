@@ -7,11 +7,15 @@ use \App\Entity\Venda;
 
 $produtos = Produto::getProdutos('status = "ativo"');
 
+$vendas = Venda::getVendas();
+
 function console_log( $data ){
     echo '<script>';
     echo 'console.log('. json_encode( $data ) .')';
     echo '</script>';
 }
+
+console_log($vendas);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

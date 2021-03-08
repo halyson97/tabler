@@ -14,22 +14,36 @@
 		}
 	}
 
-	$resultados = '';
+	$resultadosProdutos = '';
 
 	foreach ($produtos as $produto) {
 
-		$resultados .= '
+		$resultadosProdutos .= '
 						<option value="'.$produto->idprodutos.'">'.$produto->descricao.'</option>';
 	}
 
-	$adicionarProdutos = strlen($resultados) ? '' : '<div class="card-options">
+	$adicionarProdutos = strlen($resultadosProdutos) ? '' : '<div class="card-options">
 												<a href="/form-produto.php" class="btn btn-azure">Adicionar produtos</a>
 											</div>'; 
 
-	$resultados = strlen($resultados) ? $resultados : '<option disabled value="">Nenhum produto encontrado</option>';
+	$resultadosProdutos = strlen($resultadosProdutos) ? $resultadosProdutos : '<option disabled value="">Nenhum produto encontrado</option>';
 
-	
+	$resultadosVendas = '';
 
+	foreach ($vendas as $venda) {
+
+		$resultadosVendas .= '
+								<tr>
+									<td>Nome do produto</td>
+									<td>'.$venda->quantidade.'</td>
+									<td>R$ '.$venda->valor_unitario.'</td>
+									<td>R$ '.$venda->valor_total.'</td>
+								</tr>
+								
+		';
+	}
+
+	$resultadosVendas = strlen($resultadosVendas) ? $resultadosVendas : '<tr><td colspan="6" class="text-center">Nenhuma venda encontrada</td></tr>';
 
 ?>
 
@@ -45,7 +59,7 @@
 						<div class="form-group">
 							<label class="form-label">Produto</label>
 							<select class="form-control custom-select" name="produto">
-								<?=$resultados?>
+								<?=$resultadosProdutos?>
 							</select>
 						</div>
 					</div>
@@ -115,7 +129,6 @@
 						<table class="table card-table table-vcenter text-nowrap">
 							<thead>
 								<tr>
-									<th class="w-1">#</th>
 									<th>Produto</th>
 									<th>Quantidade</th>
 									<th>Valor unitário</th>
@@ -123,32 +136,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td><span class="text-muted">2</span></td>
-									<td>Batata</td>
-									<td>
-										2
-									</td>
-									<td>
-										R$ 1,50
-									</td>
-									<td>
-										R$ 3,00
-									</td>
-								</tr>
-								<tr>
-									<td><span class="text-muted">1</span></td>
-									<td>Batata</td>
-									<td>
-										10
-									</td>
-									<td>
-										R$ 1,50
-									</td>
-									<td>
-										R$ 15,00
-									</td>
-								</tr>
+								<?=$resultadosVendas?>
 							</tbody>
 						</table>
 					</div>
