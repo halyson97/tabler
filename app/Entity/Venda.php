@@ -17,7 +17,7 @@ class Venda{
 	public $createdAt;
 	public $updatedAt;
 
-	public function cadastrar(){
+	public function cadastrar($isAtualizarValorProduto = null){
 
 		$uuid = md5(uniqid(rand(), true));
 
@@ -35,6 +35,14 @@ class Venda{
 			'updatedAt' => $this->updatedAt,
             'produtos_idprodutos' => $this->produtos_idprodutos
 		]);
+
+        $objProduto = Produto::getProduto($this->produtos_idprodutos);
+        $objProduto->estoque = $objProduto->estoque - $this->quantidade;
+        if($isAtualizarValorProduto){
+            $objProduto->valor = $this->valor_unitario;
+        }
+
+        $objProduto->atualizar();
 		
 		return true;
 	}
