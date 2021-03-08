@@ -65,6 +65,16 @@ class Database{
 		$query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
 	
 		return $this->execute($query);
-	  }
+	}
+
+	public function update($where,$values){
+		$fields = array_keys($values);
+	
+		$query = 'UPDATE '.$this->table.' SET '.implode('=?,',$fields).'=? WHERE '.$where;
+	
+		$this->execute($query,array_values($values));
+	
+		return true;
+	}
 
 }

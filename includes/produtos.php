@@ -25,12 +25,12 @@
 							<td> - </td>
 							<td> - </td>                         
 							<td>
-								<a class="icon" href="./form-produto-edit.html">
+								<a class="icon" href="editar.php?id='.$produto->idprodutos.'">
 									<i class="fe fe-edit"></i>
 								</a>			    
 							</td>
 							<td>
-								<a class="icon" href="javascript:void(0)">
+								<a class="icon" href="excluir.php?id='.$produto->idprodutos.'">
 									<i class="fe fe-trash"></i>
 								</a>			    
 							</td>
@@ -52,7 +52,7 @@
 <div class="row row-cards row-deck">
 
 	<?=$mensagem?>
-	
+
 	<div class="col-12">
 		<div class="card">
 			<div class="card-header">
