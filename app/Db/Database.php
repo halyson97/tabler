@@ -51,12 +51,15 @@ class Database{
 		return true;
 	}
 
-	public function select($where = null, $order = null, $limit = null, $fields = '*'){
+	public function select($where = null, $order = null, $limit = null, $fields = '*', $join = null){
 		$where = strlen($where) ? 'WHERE '.$where : '';
 		$order = strlen($order) ? 'ORDER BY '.$order : '';
 		$limit = strlen($limit) ? 'LIMIT '.$limit : '';
+		$join = strlen($join) ? 'INNER JOIN '.$join : '';
 	
-		$query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+		$query = 'SELECT '.$fields.' FROM '.$this->table.' '.$join.' '.$where.' '.$order.' '.$limit;
+
+		console_log($query);
 	
 		return $this->execute($query);
 	}

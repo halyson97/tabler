@@ -34,7 +34,7 @@
 
 		$resultadosVendas .= '
 								<tr>
-									<td>Nome do produto</td>
+									<td>'.$venda->descricao.'</td>
 									<td>'.$venda->quantidade.'</td>
 									<td>R$ '.$venda->valor_unitario.'</td>
 									<td>R$ '.$venda->valor_total.'</td>

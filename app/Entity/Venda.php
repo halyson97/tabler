@@ -48,7 +48,9 @@ class Venda{
 	}
 
 	public static function getVendas($where = null, $order = null, $limit = null){
-		return (new Database('vendas'))->select($where,$order,$limit)->fetchAll(PDO::FETCH_CLASS,self::class);
+        $join = 'produtos ON vendas.produtos_idprodutos = produtos.idprodutos';
+        $order = 'vendas.updatedAt desc';
+		return (new Database('vendas'))->select($where,$order,$limit,'*', $join)->fetchAll(PDO::FETCH_CLASS,self::class);
 	}
 
 }
