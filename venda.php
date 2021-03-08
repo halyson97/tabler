@@ -5,7 +5,7 @@ require __DIR__.'/vendor/autoload.php';
 use \App\Entity\Produto;
 use \App\Entity\Venda;
 
-$produtos = Produto::getProdutos('status = "ativo"');
+$produtos = Produto::getProdutos('status = "ativo" and estoque >= 0');
 
 $vendas = Venda::getVendas();
 
