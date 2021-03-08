@@ -12,7 +12,7 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
-	<link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="./public/favicon.ico" type="image/x-icon"/>
 	<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
 	<!-- Generated: 2018-04-16 09:29:05 +0200 -->
 	<title>Homepage - tabler.github.io - a responsive, flat and full featured admin template</title>

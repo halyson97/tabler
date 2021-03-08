@@ -2,11 +2,26 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // The request is using the POST method
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+}
 
-    if(isset($_POST['descricao'], $_POST['estoque'], $_POST['codigoBarras'], $_POST['valor'])){
-        die('Cadastrar');
+use \App\Entity\Produto;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if(isset($_POST['descricao'], $_POST['estoque'], $_POST['codigoBarra'], $_POST['valor'])){
+
+        $objProduto = new Produto;
+
+        $objProduto->descricao = $_POST['descricao'];
+        $objProduto->valor = $_POST['valor'];
+        $objProduto->estoque = $_POST['estoque'];
+        $objProduto->codigoBarra = $_POST['codigoBarra'];
+        $objProduto->cadastrar();
+        
     }
 }
 
