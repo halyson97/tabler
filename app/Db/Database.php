@@ -7,12 +7,6 @@ require _.'../../config/config.php';
 use \PDO;
 use \PDOException;
 
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-}
-
 class Database{
 
 	private $table;

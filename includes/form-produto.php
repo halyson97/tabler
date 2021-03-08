@@ -8,19 +8,19 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<label class="form-label">Descrição</label>
-							<input type="text" class="form-control" name="descricao" placeholder="Arroz..">
+							<input required type="text" class="form-control" name="descricao" placeholder="Arroz..">
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-4">
 						<div class="form-group">
 							<label class="form-label">Estoque</label>
-							<input type="number" class="form-control" placeholder="10.." name="estoque">
+							<input required type="number" class="form-control" placeholder="10.." name="estoque">
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-4">
 						<div class="form-group">
 							<label class="form-label">Código de barras</label>
-							<input type="number" class="form-control" placeholder="78978978978978" name="codigoBarra">
+							<input required type="number" class="form-control" placeholder="78978978978978" name="codigoBarra">
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-4">
@@ -30,7 +30,7 @@
 								<span class="input-group-prepend">
 									<span class="input-group-text">R$</span>
 								</span>
-								<input type="text" class="form-control text-right" aria-label="Valor" name="valor">                         
+								<input required type="text" class="form-control text-right" aria-label="Valor" name="valor">                         
 							</div>
 						</div>
 					</div>                    

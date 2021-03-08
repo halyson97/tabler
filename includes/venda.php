@@ -36,7 +36,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<form class="card">
+		<form class="card" method="post">
 			<div class="card-body">
 				<h3 class="card-title">Realizar venda de um produto</h3>
 				<?=$adicionarProdutos?>
@@ -44,7 +44,7 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<label class="form-label">Produto</label>
-							<select class="form-control custom-select">
+							<select class="form-control custom-select" name="produto">
 								<?=$resultados?>
 							</select>
 						</div>
@@ -52,7 +52,7 @@
 					<div class="col-sm-6 col-md-4">
 						<div class="form-group">
 							<label class="form-label">Quantidade</label>
-							<input type="number" class="form-control" placeholder="Digite aqui a quantidade">
+							<input required type="number" name="quantidade" class="form-control" placeholder="Digite aqui a quantidade">
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-4">
@@ -62,7 +62,7 @@
 								<span class="input-group-prepend">
 									<span class="input-group-text">R$</span>
 								</span>
-								<input type="text" class="form-control text-right" aria-label="Valor">
+								<input required type="text" name="valor" class="form-control text-right" aria-label="Valor">
 							</div>
 						</div>
 					</div>
@@ -73,7 +73,7 @@
 								<span class="input-group-prepend">
 									<span class="input-group-text">R$</span>
 								</span>
-								<input type="text" class="form-control text-right" aria-label="Valor" disabled="disabled" title="Este campo não pode ser alterado">
+								<input required type="text" name="valorTotal" class="form-control text-right" aria-label="Valor" disabled="disabled" title="Este campo não pode ser alterado">
 							</div>
 						</div>
 					</div>
@@ -82,7 +82,7 @@
 							<div class="form-label">&nbsp;</div>
 							<div class="custom-controls-stacked">
 								<label class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked>
+									<input type="checkbox" class="custom-control-input" name="atualizarProduto" checked>
 									<span class="custom-control-label">Atualizar valor unitário do produto</span>
 								</label>
 							</div>
