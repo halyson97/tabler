@@ -7,6 +7,12 @@ require _.'../../config/config.php';
 use \PDO;
 use \PDOException;
 
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+}
+
 class Database{
 
 	private $table;
@@ -22,8 +28,33 @@ class Database{
 			$this->connection = new PDO('mysql:host='.getenv('HOST').';dbname='.getenv('NAME'),getenv('USER'),getenv('PASS'));
 			$this->connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		}catch(PDOException $e){
+			// TODO: salvar e tratar erros
 			// die('ERROR: '.$e->getMessage());
+			die('Error');
 		}
 	}
+
+	public function execute($query,$params = []){
+		try{
+			$statement = $this->connection->prepare($query);
+			$statement->execute($params);
+			return $statement;
+		}catch(PDOException $e){
+			// TODO: salvar e tratar erros
+		  	// die('ERROR: '.$e->getMessage());
+			die('Error');
+		}
+	}
+
+	public function insert($values){
+		$fields = array_keys($values);
+		$binds  = array_pad([],count($fields),'?');
+	
+		$query = 'INSERT INTO '.$this->table.' ('.implode(',',$fields).') VALUES ('.implode(',',$binds).')';
+			
+		$this->execute($query,array_values($values));
+	
+		return true;
+	  }
 
 }

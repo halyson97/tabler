@@ -23,10 +23,17 @@ class Produto{
 		$this->createdAt = date('Y-m-d H:i:s');
 		$this->updatedAt = date('Y-m-d H:i:s');
 
-		$obDatabase = new Database('produtos');
+		$objDatabase = new Database('produtos');
+		$objDatabase->insert([
+			'idprodutos' => $this->idprodutos,
+			'descricao' => $this->descricao,
+			'valor' => $this->valor,
+			'estoque' => $this->estoque,
+			'createdAt' => $this->createdAt,
+			'updatedAt' => $this->updatedAt,
+			'codigo_barra' => $this->codigoBarra
+		]);
 		
-		echo "<pre>Tudo certo</pre>";
-
 		return true;
 	}
 }

@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $objProduto->estoque = $_POST['estoque'];
         $objProduto->codigoBarra = $_POST['codigoBarra'];
         $objProduto->cadastrar();
+
+        header('location: produtos.php?success=true');
+        exit;
         
     }
 }
