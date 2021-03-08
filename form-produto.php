@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $objProduto->descricao = $_POST['descricao'];
         $objProduto->valor = $_POST['valor'];
         $objProduto->estoque = $_POST['estoque'];
-        $objProduto->codigoBarra = $_POST['codigoBarra'];
+        $objProduto->codigo_barra = $_POST['codigoBarra'];
         $objProduto->cadastrar();
 
         header('location: produtos.php?success=true');

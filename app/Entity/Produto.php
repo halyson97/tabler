@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use \App\Db\Database;
+use \PDO;
 
 class Produto{
 
@@ -10,7 +11,7 @@ class Produto{
 	public $descricao;
 	public $valor;
 	public $estoque;
-	public $codigoBarra;
+	public $codigo_barra;
 	public $status;
 	public $createdAt;
 	public $updatedAt;
@@ -31,9 +32,13 @@ class Produto{
 			'estoque' => $this->estoque,
 			'createdAt' => $this->createdAt,
 			'updatedAt' => $this->updatedAt,
-			'codigo_barra' => $this->codigoBarra
+			'codigo_barra' => $this->codigo_barra
 		]);
 		
 		return true;
+	}
+
+	public static function getProdutos($where = null, $order = null, $limit = null){
+		return (new Database('produtos'))->select($where,$order,$limit)->fetchAll(PDO::FETCH_CLASS,self::class);
 	}
 }
