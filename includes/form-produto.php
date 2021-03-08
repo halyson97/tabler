@@ -20,7 +20,7 @@
 					<div class="col-sm-6 col-md-4">
 						<div class="form-group">
 							<label class="form-label">Código de barras</label>
-							<input type="number" class="form-control" placeholder="78978978978978" max="12" name="codigoBarra">
+							<input type="number" class="form-control" placeholder="78978978978978" name="codigoBarra">
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-4">
