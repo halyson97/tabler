@@ -3,6 +3,7 @@
             </div>
         </div>
 
+        <script src="./public/assets/js/index.js"></script>
         <script src="./public/assets/js/require.min.js"></script>
         <script>
         requirejs.config({

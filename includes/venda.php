@@ -19,14 +19,19 @@
 	foreach ($produtos as $produto) {
 
 		$resultadosProdutos .= '
-						<option value="'.$produto->idprodutos.'">'.$produto->descricao.'</option>';
+						<option data-valor="'.$produto->valor.'" data-quantidade="'.$produto->estoque.'"  value="'.$produto->idprodutos.'">'.$produto->descricao.'</option>';
 	}
 
-	$adicionarProdutos = strlen($resultadosProdutos) ? '' : '<div class="card-options">
-												<a href="/form-produto.php" class="btn btn-azure">Adicionar produtos</a>
-											</div>'; 
+	$valorUnitario = '';
+	$quantidadeMax = '';
 
-	$resultadosProdutos = strlen($resultadosProdutos) ? $resultadosProdutos : '<option disabled value="">Nenhum produto encontrado</option>';
+	if(strlen($resultadosProdutos)){
+		$valorUnitario = $produtos[0]->valor;
+		$quantidadeMax = $produtos[0]->estoque;
+	} else {
+		$adicionarProdutos = '<div class="card-options"><a href="/form-produto.php" class="btn btn-azure">Adicionar produtos</a></div>'; 
+		$resultadosProdutos = '<option disabled value="">Nenhum produto encontrado</option>';
+	}
 
 	$resultadosVendas = '';
 
@@ -58,7 +63,7 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<label class="form-label">Produto</label>
-							<select class="form-control custom-select" name="produto">
+							<select class="form-control custom-select" name="produto" onchange="changeProduto(event)" >
 								<?=$resultadosProdutos?>
 							</select>
 						</div>
@@ -66,7 +71,7 @@
 					<div class="col-sm-6 col-md-4">
 						<div class="form-group">
 							<label class="form-label">Quantidade</label>
-							<input required type="number" name="quantidade" class="form-control" placeholder="Digite aqui a quantidade">
+							<input id="quantidadeVenda" onkeyup="changeValorVenda(event)" min="0" max="<?=$quantidadeMax?>" required type="number" name="quantidade" class="form-control" placeholder="Digite aqui a quantidade">
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-4">
@@ -76,7 +81,7 @@
 								<span class="input-group-prepend">
 									<span class="input-group-text">R$</span>
 								</span>
-								<input required type="text" name="valor" class="form-control text-right" aria-label="Valor">
+								<input id="valorUnitarioVenda" onkeyup="changeValorVenda(event)" value="<?=$valorUnitario?>" required type="text" name="valor" class="form-control text-right" aria-label="Valor">
 							</div>
 						</div>
 					</div>
@@ -87,7 +92,7 @@
 								<span class="input-group-prepend">
 									<span class="input-group-text">R$</span>
 								</span>
-								<input required type="text" name="valorTotal" class="form-control text-right" aria-label="Valor" disabled="disabled" title="Este campo não pode ser alterado">
+								<input id="valorTotalVenda" required type="text" name="valorTotal" class="form-control text-right" aria-label="Valor" disabled="disabled" title="Este campo não pode ser alterado">
 							</div>
 						</div>
 					</div>
