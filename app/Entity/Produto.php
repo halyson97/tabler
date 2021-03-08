@@ -61,6 +61,12 @@ class Produto{
 		return $this->atualizar();
 	}
 
+	public function restaurar(){
+		$this->updatedAt = date('Y-m-d H:i:s');
+		$this->status = 'ativo';
+		return $this->atualizar();
+	}
+
 	public static function getProdutos($where = null, $order = null, $limit = null){
 		return (new Database('produtos'))->select($where,$order,$limit)->fetchAll(PDO::FETCH_CLASS,self::class);
 	}

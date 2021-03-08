@@ -11,7 +11,7 @@
 							<td>'.$produto->estoque.'</td>
 							                   
 							<td>
-								<a class="icon" href="#">
+								<a class="icon" href="restaurar.php?id='.$produto->idprodutos.'">
 									<i class="fe fe-refresh-ccw"></i>
 								</a>				    
 							</td>
