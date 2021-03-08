@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $objProduto->codigo_barra = $_POST['codigoBarra'];
         $objProduto->cadastrar();
 
-        header('location: produtos.php?success=true');
+        header('location: produtos.php?status=success');
         exit;
         
     }
