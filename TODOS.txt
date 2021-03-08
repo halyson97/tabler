@@ -1,0 +1,10 @@
+Tela de produtos
+
+[] Listar data da ultima venda e valor total de vendas
+[] Habilitar opção de editar produtos
+[] Implementar filtro de pesquisa no campo de pesquisa
+
+Geral
+
+[] Aplicar mascara no campo valor em todos os lugares
+[] Setar a aba selecionada de acordo com a pagina
