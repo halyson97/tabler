@@ -4,7 +4,7 @@ require __DIR__.'/vendor/autoload.php';
 
 use \App\Entity\Produto;
 
-$produtos = Produto::getProdutos();
+$produtos = Produto::getProdutos('status = "ativo"');
 
 function console_log( $data ){
     echo '<script>';
